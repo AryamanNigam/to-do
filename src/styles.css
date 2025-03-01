@@ -4,7 +4,21 @@ html, body{
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    color: #e4e4e7;
 }
+
+.dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+  
 
 .container{
     display: grid;
@@ -25,7 +39,7 @@ html, body{
 }
 
 .tabs{
-    margin-bottom: -40px;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -38,14 +52,23 @@ html, body{
 }
 
 .tab{
+    height: 40px;
     font-size: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: #09090b;
     border: 0px;
     width: 85%;
     color: #e4e4e7;
     border-radius: 10px;
+    gap: 2px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.tab:hover, .project-div:hover{
+    transform: scale(1.02);
 }
 
 .tab > img{
@@ -64,67 +87,63 @@ html, body{
     justify-content: space-evenly;
     margin-right: 40px;
     align-items: center;
+    font-family: "DM Serif Text", serif;
 }
 
-.projects{
+.projects {
     margin-bottom: 350px;
     width: 100%;
 }
 
-.projects div:first-child{
+.projects h2 {
     font-size: 30px;
     font-weight: bold;
-    padding-bottom: 2px;
+    margin-bottom: 0px;
 }
 
-.project-div{
+.project-div {
     background-color: #09090b;
     display: flex;
-    flex-direction: row;
-    border: 0px;
+    align-items: center;
     border-radius: 10px;
-    height: 25px;
+    height: 40px;
+    padding: 5px;
+    gap: 10px; 
+    transition: background-color 0.2s ease-in-out;
 }
 
-.project-button{
+.project-button {
     font-size: 18px;
     display: flex;
-    background-color: #09090b;
-    border: 0px;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
     width: 85%;
     color: #e4e4e7;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.p-img{
-    margin-right: 5px;
+.p-img {
     height: 20px;
 }
 
 .delete-button {
     height: 20px;
     width: 20px;
-    background-image: url('../assets/delete.svg');
-    background-size: cover; 
-    background-color: #09090b;
-    border: 0px;
+    background: url('../assets/delete.svg') no-repeat center / cover;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.delete-button:hover{
-    background-color: #37373d;  
+.project-div:hover,
+.project-button:hover,
+.delete-button:hover {
+    background-color: #37373d;
 }
 
-.project-button:hover{
-    background-color: #37373d;  
-}
-
-.project-div:hover{
-    background-color: #37373d;  
-}
-
-.content{
-    background-color: #18181b;
-    grid-column: 2 / 3;
-}
 
 #add-button{
     display: flex;
@@ -137,8 +156,131 @@ html, body{
     width: 85%;
     color: #e4e4e7;
     background-color: #09090b;
+    transition: background-color 0.2s ease-in-out;
 }
 
 #add-button:hover{
     background-color: #37373d;  
+    transform: scale(1.02);
+}
+
+#content{
+    background-color: #18181b;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    padding: 15px;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+#tasks-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 75px;
+}
+
+#tasks-header > hr{
+    width: 80%;
+}
+
+#tasks-list{
+    padding: 10px;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: auto;
+}
+
+.task{
+    background-color: #0a0a0a;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+}
+
+.task button{
+    background-color: #0a0a0a;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+#check{
+    height: 20px;
+    width: 20px;
+}
+
+.task:hover{
+    background-color: #37373d;
+    transform: scale(1.01);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.priority{
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    border-radius: 20px;
+}
+
+.task-left, .task-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-button > img, .task-delete-button > img{
+    height: 30px;
+    cursor: pointer;
+}
+
+.edit-button{
+    background-image: url('../assets/pencil-svgrepo-com.svg');
+}
+
+
+#tasks-count{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#tasks-left-div, #new-task-div{
+    height: 80%;
+    background-color: #09090b;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+#tasks-left-div:hover, #new-task-div:hover{
+    transform: scale(1.02);
+}
+
+
+#new-task{
+    height: 150x;
+    background-color: #09090b;
+    border: 0px;
+    background-image: url('../assets/add-plus-svgrepo-com.svg');
+    cursor: pointer;
 }
